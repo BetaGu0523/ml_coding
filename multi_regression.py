@@ -16,7 +16,7 @@ def regression(x_data, y_data, alpha=0.006):
 	cost_sum = []
 
 	# 梯度下降
-	while loop<10000:
+	while loop<1000:
 		theta_temp = theta.copy() # 容易出错
 
 		for j in range(n):
@@ -53,10 +53,13 @@ def main():
 	# 回归返回theta与代价函数值
 	cost_sum ,eli_theta = regression(x_data,y_data)
 
-	plt.plot(cost_sum,np.arange(cost_sum.shape[0]))
-	plt.show()
-	
+	#plt.plot(cost_sum,np.arange(cost_sum.shape[0]))
+	#plt.show()
+
+	eli_theta_2 = np.dot(np.linalg.inv(np.dot(x_data.T,x_data)),x_data.T)@y_data
+
 	print (eli_theta)
+	print (eli_theta_2)
 
 
 
